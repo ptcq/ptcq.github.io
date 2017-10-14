@@ -3,16 +3,20 @@ layout: default
 ---
 
 <div id="container" class="cols">
-    {% for post in site.posts %}
-    <div class="box" style="background-color:#{{post.color}}">
-       {% if post.img %}
-          <img class="feat-image" src={{ "/images/" | prepend: site.url | append: post.img }} alt="{{post.title}}">
-       {% endif %}
-          <div class="container">
-            <h4>{{post.title}}</h4>
-            <p>{{post.description}}</p>
-             <div class="action">{{ post.date | date: '%Y-%m-%d' }}<a href="{{post.url | prepend: site.url}}"><i class="fa fa-arrow-right" aria-hidden="true"></i></a></div> 
-        </div>   
-    </div>
-   {% endfor %}
+  {% for post in site.posts %}
+  <div class="box" style="background-color:#{{post.color}}">
+    <div class="action">
+      <a href="{{post.url | prepend: site.url}}">
+     {% if post.img %}
+     <img class="feat-image" src={{ "/images/" | prepend: site.url | append: post.img }} alt="{{post.title}}">
+     {% endif %}
+     </a>
+     <div class="container">
+      <h4><a href="{{post.url | prepend: site.url}}">{{post.title}}</a></h4>
+      <p><a href="{{post.url | prepend: site.url}}">{{post.description}}</a></p>
+      <a href="{{post.url | prepend: site.url}}">{{ post.date | date: '%Y-%m-%d' }}</a>
+    </div>   
+  </div> 
+</div>
+{% endfor %}
 </div>
