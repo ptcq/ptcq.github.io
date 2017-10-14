@@ -4,23 +4,20 @@ layout: default
 
 <div id="container" class="cols">
   {% for post in site.posts %}
-  <div class="box" style="background-color:#{{post.color}}">
-
-    <a href="{{post.url | prepend: site.url}}">
+  <a href="{{post.url | prepend: site.url}}">
+    <div class="box" style="background-color:#{{post.color}}">
      {% if post.img %}
      <img class="feat-image" src={{ "/images/" | prepend: site.url | append: post.img }} alt="{{post.title}}">
      {% endif %}
-   </a>
-   <div class="container">
-    <h4><a href="{{post.url | prepend: site.url}}">{{post.title}}</a></h4>
-    <p><a href="{{post.url | prepend: site.url}}">{{post.description}}</a></p>
+     <div class="container">
+      <h4>{{post.title}}</h4>
+      <p>{{post.description}}</p>
 
-    <div class="action">
-      <a href="{{post.url | prepend: site.url}}">
+      <div class="action">
         {{ post.date | date: '%Y-%m-%d' }}
-      </a>
-    </div>
-  </div> 
+      </div>
+    </div> 
+  </a>
 </div>
 {% endfor %}
 </div>
